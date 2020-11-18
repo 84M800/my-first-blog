@@ -4,19 +4,15 @@
     </head>
     <body>
         <div>
-            <h1><a href="/">"No se dice cajón desastre "</a></h1>
+            <h1><a href="/">Django Girls Blog</a></h1>
         </div>
-
-        <div>
-            <p>published: 14.06.2020, 12:14</p>
-            <h2><a href="">Empezando a postear</a></h2>
-            <p>Estos es lo que vendrñia siendo texto dentro del encabezado h2 Empezando a postear.</p>
-        </div>
-
-        <div>
-            <p>published: 14.11.2020, 12:14</p>
-            <h2><a href="">OTRO POST</a></h2>
-            <p>Ese scuchando una pedazo de sesión de jamaal meeks & sean taylor.</p>
-        </div>
+        
+        {% for post in posts %}
+            <div>
+                <p> publicado: {{ post.published_date }}</p>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>
